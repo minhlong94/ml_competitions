@@ -18,15 +18,14 @@ def image_ImageDataGenerator_from_dataframe(model, normalize_method, target_size
             Dict contains normalization method, as describe in:
                 https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator#arguments_11.
             Sample usage: {"featurewise_center": True}, {"featurewise_std_normalization" :True}
+            Note: does not support featurewise params. Use samplewise instead.
         target_size: tuple of 2
             A tuple of (img_width, img_height).
         idg_params: dict
-            dictionary contains ImageDataGenerator params. It should not contain one of the following: featurewise_center,
-                samplewise_center, featurewise_std_normalization, samplewise_std_normalization, rescale
-            as it is the `normalize_method`.
+            dictionary contains ImageDataGenerator params. It should not contain one of the following: samplewise_center,
+                samplewise_std_normalization, rescale as it is the `normalize_method`.
             Sample usage:
             {
-            "zca_whitening"=True,
             "rotation_range" = 30,
             "horizontal_flip"=True,
             "vertical_flip"=True
